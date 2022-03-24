@@ -27,7 +27,7 @@
   roles:
     - role: buluma.repo_epel
     - role: buluma.fathom
-    - role: geerlingguy.nginx
+    - role: buluma.nginx
 
   post_tasks:
     - name: Ensure Fathom is responding through Nginx.
