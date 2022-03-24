@@ -1,0 +1,8 @@
+---
+#
+# Ansible managed
+#
+repository:
+  description: Fathom web analytics
+  homepage: https://buluma.github.io/
+  topics: web, analytics, stats, metrics, tracking, dashboard, ansible, molecule, tox, playbook, hacktoberfest
