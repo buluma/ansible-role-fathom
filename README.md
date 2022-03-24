@@ -67,7 +67,7 @@ The following roles are used to prepare a system. You can prepare your system in
 | Requirement | GitHub | GitLab |
 |-------------|--------|--------|
 |[buluma.repo_epel](https://galaxy.ansible.com/buluma/repo_epel)|[![Build Status GitHub](https://github.com/buluma/ansible-role-repo_epel/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-repo_epel/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/ansible-role-repo_epel/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-repo_epel)|
-|[geerlingguy.nginx](https://galaxy.ansible.com/buluma/geerlingguy.nginx)|[![Build Status GitHub](https://github.com/buluma/geerlingguy.nginx/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/geerlingguy.nginx/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/geerlingguy.nginx/badges/master/pipeline.svg)](https://gitlab.com/buluma/geerlingguy.nginx)|
+|[buluma.nginx](https://galaxy.ansible.com/buluma/buluma.nginx)|[![Build Status GitHub](https://github.com/buluma/buluma.nginx/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/buluma.nginx/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/buluma.nginx/badges/master/pipeline.svg)](https://gitlab.com/buluma/buluma.nginx)|
 
 ## [Context](#context)
 
