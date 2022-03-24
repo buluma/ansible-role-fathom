@@ -26,7 +26,7 @@
 
   roles:
     - role: buluma.repo_epel
-    - role: geerlingguy.fathom
+    - role: buluma.fathom
     - role: geerlingguy.nginx
 
   post_tasks:
