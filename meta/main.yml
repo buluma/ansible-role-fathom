@@ -1,6 +1,7 @@
 galaxy_info:
   author: Michael Buluma
   namespace: buluma
+  role_name: "fathom"
   description: "Fathom web analytics"
   company: "ShadowNet"
 
