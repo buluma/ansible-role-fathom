@@ -1,4 +1,11 @@
 ---
+
+- name: update apt cache.
+  apt: update_cache=true cache_valid_time=600
+  when: ansible_os_family == 'Debian'
+  changed_when: false
+
+# TODO: test bootstrap install
 - name: ensure unzip is installed.
   ansible.builtin.package: name=unzip state=present
 
