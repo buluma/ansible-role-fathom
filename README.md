@@ -16,17 +16,11 @@ This example is taken from `molecule/default/converge.yml` and is tested on each
   become: yes
   gather_facts: yes
 
-  pre_tasks:
-    - name: Update apt cache.
-      apt: update_cache=true cache_valid_time=600
-      when: ansible_os_family == 'Debian'
-      changed_when: false
-
   roles:
     - role: buluma.fathom
 
   post_tasks:
-    - name: Ensure Fathom is responding on the specified port.
+    - name: ensure Fathom is responding on the specified port.
       ansible.builtin.uri:
         url: "http://127.0.0.1:{{ fathom_http_port }}"
         status_code: 200
@@ -34,6 +28,28 @@ This example is taken from `molecule/default/converge.yml` and is tested on each
       until: result.status == 200
       retries: 60
       delay: 1
+```
+
+The machine needs to be prepared. In CI this is done using `molecule/default/prepare.yml`:
+```yaml
+---
+- name: Prepare
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  roles:
+    - role: buluma.bootstrap
+    - role: buluma.repo_epel
+      when:
+        - (ansible_distribution == "Amazon" and
+          ansible_distribution_major_version == "2") or
+          (ansible_os_family == "RedHat" and
+          ansible_distribution_major_version in [ "7", "8" ])
+    - role: buluma.ca_certificates
+      when:
+        - (ansible_distribution == "Debian") or
+          (ansible_os_family == "Ubuntu")
 ```
 
 
@@ -67,8 +83,10 @@ The following roles are used to prepare a system. You can prepare your system in
 
 | Requirement | GitHub | GitLab |
 |-------------|--------|--------|
+|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-bootstrap)|
 |[buluma.repo_epel](https://galaxy.ansible.com/buluma/repo_epel)|[![Build Status GitHub](https://github.com/buluma/ansible-role-repo_epel/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-repo_epel/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/ansible-role-repo_epel/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-repo_epel)|
 |[buluma.nginx](https://galaxy.ansible.com/buluma/nginx)|[![Build Status GitHub](https://github.com/buluma/ansible-role-nginx/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-nginx/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/ansible-role-nginx/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-nginx)|
+|[buluma.ca_certificates](https://galaxy.ansible.com/buluma/ca_certificates)|[![Build Status GitHub](https://github.com/buluma/ansible-role-ca_certificates/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-ca_certificates/actions)|[![Build Status GitLab ](https://gitlab.com/buluma/ansible-role-ca_certificates/badges/master/pipeline.svg)](https://gitlab.com/buluma/ansible-role-ca_certificates)|
 
 ## [Context](#context)
 
