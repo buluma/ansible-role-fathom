@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- Testing [\#5](https://github.com/buluma/ansible-role-fathom/pull/5) ([buluma](https://github.com/buluma))
 - Developer must implement and populate 'server' variable [\#4](https://github.com/buluma/ansible-role-fathom/pull/4) ([buluma](https://github.com/buluma))
 - Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.3 to 1.0.4 [\#2](https://github.com/buluma/ansible-role-fathom/pull/2) ([dependabot[bot]](https://github.com/apps/dependabot))
 
