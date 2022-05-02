@@ -20,7 +20,7 @@
           }
   pre_tasks:
     - name: Update apt cache.
-      apt: update_cache=true cache_valid_time=600
+      ansible.builtin.apt: update_cache=true cache_valid_time=600
       when: ansible_os_family == 'Debian'
       changed_when: false
 
@@ -31,7 +31,7 @@
 
   post_tasks:
     - name: Ensure Fathom is responding through Nginx.
-      uri:
+      ansible.builtin.uri:
         url: "http://127.0.0.1/"
         status_code: 200
       register: result
