@@ -5,7 +5,7 @@
   gather_facts: yes
 
   pre_tasks:
-    - name: Update apt cache.
+    - name: update apt cache.
       apt: update_cache=true cache_valid_time=600
       when: ansible_os_family == 'Debian'
       changed_when: false
@@ -14,7 +14,7 @@
     - role: buluma.fathom
 
   post_tasks:
-    - name: Ensure Fathom is responding on the specified port.
+    - name: ensure Fathom is responding on the specified port.
       ansible.builtin.uri:
         url: "http://127.0.0.1:{{ fathom_http_port }}"
         status_code: 200

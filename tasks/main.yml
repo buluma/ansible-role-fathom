@@ -1,31 +1,31 @@
 ---
-- name: Ensure unzip is installed.
+- name: ensure unzip is installed.
   ansible.builtin.package: name=unzip state=present
 
-- name: Ensure SQLite is installed (Red Hat).
+- name: ensure SQLite is installed (Red Hat).
   ansible.builtin.package: name=sqlite state=present
   when: ansible_os_family == 'RedHat'
 
-- name: Ensure SQLite is installed (Debian).
+- name: ensure SQLite is installed (Debian).
   ansible.builtin.package: name=sqlite3 state=present
   when: ansible_os_family == 'Debian'
 
 - include_tasks: install.yml
 
-- name: Create Fathom directory.
+- name: create Fathom directory.
   ansible.builtin.file:
     path: "{{ fathom_directory }}"
     state: directory
     mode: 0755
 
-- name: Copy Fathom config into place.
+- name: copy Fathom config into place.
   ansible.builtin.template:
     src: fathom-config.j2
     dest: "{{ fathom_directory }}/.env"
     mode: 0644
   notify: restart fathom
 
-- name: Copy Fathom systemd unit file into place (for systemd systems).
+- name: copy Fathom systemd unit file into place (for systemd systems).
   ansible.builtin.template:
     src: fathom.unit.j2
     dest: /etc/systemd/system/fathom.service
@@ -35,7 +35,7 @@
   notify: restart fathom
   when: "ansible_service_mgr == 'systemd'"
 
-- name: Ensure Fathom service is in the correct state.
+- name: ensure Fathom service is in the correct state.
   ansible.builtin.service:
     name: fathom
     state: "{{ fathom_service_state }}"
