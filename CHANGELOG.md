@@ -4,8 +4,13 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-fathom/compare/0.1.0...HEAD)
 
+**Closed issues:**
+
+- Developer must implement and populate 'server' variable [\#1](https://github.com/buluma/ansible-role-fathom/issues/1)
+
 **Merged pull requests:**
 
+- Developer must implement and populate 'server' variable [\#4](https://github.com/buluma/ansible-role-fathom/pull/4) ([buluma](https://github.com/buluma))
 - Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.3 to 1.0.4 [\#2](https://github.com/buluma/ansible-role-fathom/pull/2) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [0.1.0](https://github.com/buluma/ansible-role-fathom/tree/0.1.0) (2022-03-24)
