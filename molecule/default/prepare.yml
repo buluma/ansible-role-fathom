@@ -13,6 +13,3 @@
           (ansible_os_family == "RedHat" and
           ansible_distribution_major_version in [ "7", "8" ])
     - role: buluma.ca_certificates
-      when:
-        - (ansible_distribution == "Debian") or
-          (ansible_os_family == "Ubuntu")
