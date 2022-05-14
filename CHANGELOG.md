@@ -10,6 +10,7 @@
 
 **Merged pull requests:**
 
+- Testing [\#7](https://github.com/buluma/ansible-role-fathom/pull/7) ([buluma](https://github.com/buluma))
 - Bump buluma/molecule-action from 4.0.6 to 4.0.7 [\#6](https://github.com/buluma/ansible-role-fathom/pull/6) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Testing [\#5](https://github.com/buluma/ansible-role-fathom/pull/5) ([buluma](https://github.com/buluma))
 - Developer must implement and populate 'server' variable [\#4](https://github.com/buluma/ansible-role-fathom/pull/4) ([buluma](https://github.com/buluma))
