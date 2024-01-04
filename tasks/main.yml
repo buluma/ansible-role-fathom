@@ -31,7 +31,7 @@
     src: fathom-config.j2
     dest: "{{ fathom_directory }}/.env"
     mode: 0644
-  notify: restart fathom
+  notify: Restart fathom
 
 - name: Copy fathom systemd unit file into place (for systemd systems).
   ansible.builtin.template:
@@ -40,7 +40,7 @@
     owner: root
     group: root
     mode: 0755
-  notify: restart fathom
+  notify: Restart fathom
   when: "ansible_service_mgr == 'systemd'"
 
 - name: Ensure fathom service is in the correct state.
