@@ -19,16 +19,6 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
 
   roles:
     - role: buluma.fathom
-
-  post_tasks:
-    - name: ensure Fathom is responding on the specified port.
-      ansible.builtin.uri:
-        url: "http://127.0.0.1:{{ fathom_http_port }}"
-        status_code: 200
-      register: result
-      until: result.status == 200
-      retries: 60
-      delay: 1
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-fathom/blob/master/molecule/default/prepare.yml):
@@ -60,7 +50,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 ```yaml
 ---
 # defaults file for fathom
-fathom_binary_url: https://github.com/usefathom/fathom/releases/download/v1.2.1/fathom_1.2.1_linux_amd64.tar.gz
+fathom_binary_url: https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz
 fathom_force_update: false
 
 fathom_manage_service: true
@@ -103,11 +93,11 @@ This role has been tested on these [container images](https://hub.docker.com/u/b
 
 |container|tags|
 |---------|----|
-|[EL](https://hub.docker.com/repository/docker/buluma/enterpriselinux/general)|7|
+|[EL](https://hub.docker.com/repository/docker/buluma/enterpriselinux/general)|all|
 |[Ubuntu](https://hub.docker.com/repository/docker/buluma/ubuntu/general)|all|
 |[Debian](https://hub.docker.com/repository/docker/buluma/debian/general)|all|
 
-The minimum version of Ansible required is 2.4, tests have been done to:
+The minimum version of Ansible required is 2.12, tests have been done to:
 
 - The previous version.
 - The current version.
