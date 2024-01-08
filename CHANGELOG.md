@@ -1,21 +1,21 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-fathom/tree/HEAD)
+## [0.3.0](https://github.com/buluma/ansible-role-fathom/tree/0.3.0) (2024-01-04)
 
-[Full Changelog](https://github.com/buluma/ansible-role-fathom/compare/0.2.1...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-fathom/compare/0.2.0...0.3.0)
 
 **Merged pull requests:**
 
 - Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.5 to 1.0.8 [\#19](https://github.com/buluma/ansible-role-fathom/pull/19) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 3 to 4 [\#18](https://github.com/buluma/ansible-role-fathom/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
 
-## [0.2.1](https://github.com/buluma/ansible-role-fathom/tree/0.2.1) (2024-01-04)
-
-[Full Changelog](https://github.com/buluma/ansible-role-fathom/compare/0.2.0...0.2.1)
-
 ## [0.2.0](https://github.com/buluma/ansible-role-fathom/tree/0.2.0) (2024-01-04)
 
-[Full Changelog](https://github.com/buluma/ansible-role-fathom/compare/0.1.1...0.2.0)
+[Full Changelog](https://github.com/buluma/ansible-role-fathom/compare/0.2.1...0.2.0)
+
+## [0.2.1](https://github.com/buluma/ansible-role-fathom/tree/0.2.1) (2024-01-04)
+
+[Full Changelog](https://github.com/buluma/ansible-role-fathom/compare/0.1.1...0.2.1)
 
 **Closed issues:**
 
