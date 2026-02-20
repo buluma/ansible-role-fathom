@@ -1,0 +1,2 @@
+ansible-role-fathom [generator]: ERROR: Unhandled exception when retrieving 'DEFAULT_LOCAL_TMP': [Errno 1] Operation not permitted: '/Users/shadowwalker/.ansible/tmp/ansible-local-84113mj6cvfes'
+ansible-role-fathom [yamllint]: ./.ansible/roles/buluma.repo_epel/tasks/main.yml 35:15 error forbidden implicit octal value "0644" (octal-values) 
