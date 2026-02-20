@@ -1,19 +1,26 @@
 ---
-
 - name: Update apt cache.
-  ansible.builtin.apt: update_cache=true cache_valid_time=600
+  ansible.builtin.apt:
+    update_cache: "true"
+    cache_valid_time: "600"
   when: ansible_os_family == 'Debian'
   changed_when: false
 
 - name: Ensure unzip is installed.
-  ansible.builtin.package: name=unzip state=present
+  ansible.builtin.package:
 
+    name: unzip
+    state: present
 - name: Ensure SQLite is installed (Red Hat).
-  ansible.builtin.package: name=sqlite state=present
+  ansible.builtin.package:
+    name: sqlite
+    state: present
   when: ansible_os_family == 'RedHat'
 
 - name: Ensure SQLite is installed (Debian).
-  ansible.builtin.package: name=sqlite3 state=present
+  ansible.builtin.package:
+    name: sqlite3
+    state: present
   when: ansible_os_family == 'Debian'
 
 - name: Import Install
@@ -24,13 +31,13 @@
   ansible.builtin.file:
     path: "{{ fathom_directory }}"
     state: directory
-    mode: 0755
+    mode: "0755"
 
 - name: Copy fathom config into place.
   ansible.builtin.template:
     src: fathom-config.j2
     dest: "{{ fathom_directory }}/.env"
-    mode: 0644
+    mode: "0644"
   notify: Restart fathom
 
 - name: Copy fathom systemd unit file into place (for systemd systems).
@@ -39,7 +46,7 @@
     dest: /etc/systemd/system/fathom.service
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
   notify: Restart fathom
   when: "ansible_service_mgr == 'systemd'"
 
