@@ -1,4 +1,3 @@
----
 - src: buluma.bootstrap
 - src: buluma.repo_epel
 - src: buluma.nginx

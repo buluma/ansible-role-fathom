@@ -1,18 +1,15 @@
----
-- name: Verify
-  hosts: all
-  become: true
+- become: true
   gather_facts: true
-
+  hosts: all
+  name: Verify
   tasks:
-    - name: Ensure Fathom is responding on the specified port.
-      ansible.builtin.uri:
-        url: "http://127.0.0.1:9000"
-        status_code: 200
-      register: result
-      until: result.status == 200
-      retries: 60
-      delay: 1
-
-    - name: Check if connection still works
-      ansible.builtin.ping:
+  - ansible.builtin.uri:
+      status_code: 200
+      url: http://127.0.0.1:9000
+    delay: 1
+    name: Ensure Fathom is responding on the specified port.
+    register: result
+    retries: 60
+    until: result.status == 200
+  - ansible.builtin.ping: null
+    name: Check if connection still works

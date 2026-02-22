@@ -1,9 +1,16 @@
 ---
+dependencies: []
 galaxy_info:
   author: buluma
-  role_name: fathom
-  description: Fathom web analytics
   company: ShadowNet
+  description: Fathom web analytics
+  galaxy_tags:
+    - web
+    - analytics
+    - stats
+    - metrics
+    - tracking
+    - dashboard
   license: Apache-2.0
   min_ansible_version: "2.12"
   platforms:
@@ -16,11 +23,4 @@ galaxy_info:
     - name: Debian
       versions:
         - all
-  galaxy_tags:
-    - web
-    - analytics
-    - stats
-    - metrics
-    - tracking
-    - dashboard
-dependencies: []
+  role_name: fathom
