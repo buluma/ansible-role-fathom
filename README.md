@@ -11,29 +11,31 @@ Fathom web analytics
 This example is taken from [`molecule/default/converge.yml`](https://github.com/buluma/ansible-role-fathom/blob/master/molecule/default/converge.yml) and is tested on each push, pull request and release.
 
 ```yaml
-- become: true
-  gather_facts: true
-  hosts: all
-  name: Converge
-  roles:
-  - role: buluma.fathom
+---
+  - become: true
+    gather_facts: true
+    hosts: all
+    name: Converge
+    roles:
+      - role: buluma.fathom
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-fathom/blob/master/molecule/default/prepare.yml):
 
 ```yaml
-- become: true
-  gather_facts: false
-  hosts: all
-  name: Prepare
-  roles:
-  - role: buluma.bootstrap
-  - role: buluma.repo_epel
-    when:
-    - (ansible_distribution == "Amazon" and ansible_distribution_major_version ==
-      "2") or (ansible_os_family == "RedHat" and ansible_distribution_major_version
-      in [ "7", "8" ])
-  - role: buluma.ca_certificates
+---
+  - become: true
+    gather_facts: false
+    hosts: all
+    name: Prepare
+    roles:
+      - role: buluma.bootstrap
+      - role: buluma.repo_epel
+        when:
+          - (ansible_distribution == "Amazon" and 
+            ansible_distribution_major_version == "2") or (ansible_os_family == 
+            "RedHat" and ansible_distribution_major_version in [ "7", "8" ])
+      - role: buluma.ca_certificates
 ```
 
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
@@ -43,11 +45,13 @@ Also see a [full explanation and example](https://buluma.github.io/how-to-use-th
 The default values for the variables are set in [`defaults/main.yml`](https://github.com/buluma/ansible-role-fathom/blob/master/defaults/main.yml):
 
 ```yaml
-fathom_binary_url: https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz
+---
+fathom_binary_url: 
+  https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz
 fathom_database_name: fathom.db
 fathom_directory: /opt/fathom
 fathom_force_update: false
-fathom_http_port: '9000'
+fathom_http_port: "9000"
 fathom_manage_service: true
 fathom_secret: secret-string-here
 fathom_service_enabled: true
