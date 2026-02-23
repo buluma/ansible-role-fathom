@@ -1,36 +1,35 @@
 ---
-  - become: true
-    hosts: all
-    name: Converge
-    post_tasks:
-      - ansible.builtin.uri:
-          status_code: 200
-          url: http://127.0.0.1/
-        delay: 1
-        name: Ensure Fathom is responding through Nginx.
-        register: result
-        retries: 60
-        until: result.status == 200
-    pre_tasks:
-      - ansible.builtin.apt:
-          cache_valid_time: 600
-          update_cache: true
-        changed_when: false
-        name: Update apt cache.
-        when: ansible_os_family == 'Debian'
-    roles:
-      - role: buluma.repo_epel
-      - role: buluma.fathom
-      - role: buluma.nginx
-    vars:
-      fathom_http_port: '9999'
-      nginx_remove_default_vhost: true
-      nginx_vhosts:
-        - extra_parameters: "location / {\n    proxy_set_header X-Real-IP $remote_addr;\n\
-            \    proxy_set_header X-Forwarded-For $remote_addr;\n    proxy_set_header
-            Host $host;\n    proxy_pass http://127.0.0.1:{{ fathom_http_port }};\n\
-            }\n"
-          filename: fathom.conf
-          listen: 80 default_server
-          server_name: _
-          state: present
+- become: true
+  hosts: all
+  name: Converge
+  post_tasks:
+  - ansible.builtin.uri:
+      status_code: 200
+      url: http://127.0.0.1/
+    delay: 1
+    name: Ensure Fathom is responding through Nginx.
+    register: result
+    retries: 60
+    until: result.status == 200
+  pre_tasks:
+  - ansible.builtin.apt:
+      cache_valid_time: 600
+      update_cache: true
+    changed_when: false
+    name: Update apt cache.
+    when: ansible_os_family == 'Debian'
+  roles:
+  - role: buluma.repo_epel
+  - role: buluma.fathom
+  - role: buluma.nginx
+  vars:
+    fathom_http_port: '9999'
+    nginx_remove_default_vhost: true
+    nginx_vhosts:
+    - extra_parameters: "location / {\n    proxy_set_header X-Real-IP $remote_addr;\n\
+        \    proxy_set_header X-Forwarded-For $remote_addr;\n    proxy_set_header
+        Host $host;\n    proxy_pass http://127.0.0.1:{{ fathom_http_port }};\n}\n"
+      filename: fathom.conf
+      listen: 80 default_server
+      server_name: _
+      state: present
