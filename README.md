@@ -32,8 +32,8 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
   - role: buluma.bootstrap
   - role: buluma.repo_epel
     when:
-    - (ansible_distribution == "Amazon" and ansible_distribution_major_version 
-      == "2") or (ansible_os_family == "RedHat" and 
+    - (ansible_distribution == "Amazon" and ansible_distribution_major_version
+      == "2") or (ansible_os_family == "RedHat" and
       ansible_distribution_major_version in [ "7", "8" ])
   - role: buluma.ca_certificates
 ```
@@ -46,7 +46,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 ```yaml
 ---
-fathom_binary_url: 
+fathom_binary_url:
   https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz
 fathom_database_name: fathom.db
 fathom_directory: /opt/fathom
@@ -106,4 +106,3 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 ## [Author Information](#author-information)
 
 [buluma](https://buluma.github.io/)
-
