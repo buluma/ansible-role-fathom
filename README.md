@@ -46,8 +46,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 ```yaml
 ---
-fathom_binary_url:
-  https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz
+fathom_binary_url: https://github.com/usefathom/fathom/releases/download/v1.3.1/fathom_1.3.1_linux_amd64.tar.gz
 fathom_database_name: fathom.db
 fathom_directory: /opt/fathom
 fathom_force_update: false
@@ -106,3 +105,4 @@ If you find issues, please register them on [GitHub](https://github.com/buluma/a
 ## [Author Information](#author-information)
 
 [buluma](https://buluma.github.io/)
+
