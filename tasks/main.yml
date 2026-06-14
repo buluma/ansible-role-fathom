@@ -4,7 +4,7 @@
     cache_valid_time: "600"
     update_cache: "true"
   changed_when: false
-  when: ansible_facts.os_family == 'Debian'
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Ensure unzip is installed.
   ansible.builtin.package:
     name: unzip
@@ -13,12 +13,12 @@
   ansible.builtin.package:
     name: sqlite
     state: present
-  when: ansible_facts.os_family == 'RedHat'
+  when: ansible_facts['os_family'] == 'RedHat'
 - name: Ensure SQLite is installed (Debian).
   ansible.builtin.package:
     name: sqlite3
     state: present
-  when: ansible_facts.os_family == 'Debian'
+  when: ansible_facts['os_family'] == 'Debian'
 - name: Import Install
   ansible.builtin.import_tasks:
     file: install.yml
@@ -45,7 +45,7 @@
   notify:
     - Restart fathom
   # Separator for the pre-commit handler parser.
-  when: ansible_facts.service_mgr == 'systemd'
+  when: ansible_facts['service_mgr'] == 'systemd'
 - name: Ensure fathom service is in the correct state.
   ansible.builtin.service:
     enabled: "{{ fathom_service_enabled }}"
