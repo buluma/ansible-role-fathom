@@ -34,7 +34,7 @@
     src: fathom-config.j2
   notify:
     - Restart fathom
-  # Separator for the pre-commit handler parser.
+# Separator for the pre-commit handler parser.
 - name: Copy fathom systemd unit file into place (for systemd systems).
   ansible.builtin.template:
     dest: /etc/systemd/system/fathom.service
